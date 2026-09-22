@@ -1,0 +1,96 @@
+:root{font-family:Tahoma,system-ui,sans-serif;color:#163d36;background:#f2f5ef}*{box-sizing:border-box}body{margin:0}main{max-width:1050px;margin:auto;padding:28px 24px}header,.toolbar,nav,.row,.header-right{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.header-right{justify-content:flex-end}.header-right small{margin:0}header{font-size:13px}header strong{letter-spacing:2px}h1{font-size:clamp(28px,5vw,44px);line-height:1.35;margin:32px 0 12px}em{font-style:normal;color:#548368}p,small,footer{color:#64766b;line-height:1.7}h2{font-size:21px;margin-top:0}.panel{background:white;border:1px solid #dce5d8;border-radius:16px;padding:24px;margin:22px 0}.panel.bare{background:none;border:none;padding:0;box-shadow:none}#login-panel{max-width:620px;margin-inline:auto}#login{text-align:center}#login input{width:60%;margin-inline:auto}label{display:block;font-size:14px;margin:16px 0}input,select,textarea{display:block;width:100%;padding:12px;border:1px solid #c4d2c2;border-radius:8px;background:#fcfdfb;font:inherit;margin-top:7px;color:inherit}textarea{min-height:90px}button{border:0;border-radius:8px;padding:12px 18px;background:#163d36;color:white;font:inherit;cursor:pointer}button:hover{background:#315d4e}button:disabled{opacity:.5;cursor:wait}button.secondary,nav button{background:#e5ecdf;color:#163d36}nav{justify-content:flex-start;margin-top:20px}nav button.active{background:#163d36;color:white}small{display:block;font-size:12px;margin-top:12px}.row input{flex:2;min-width:200px}.row select{flex:1;min-width:160px}#search{flex-direction:column;align-items:center}#search input,#search select,#search button{flex:none;width:60%;min-width:0}.card{border:1px solid #dce5d8;border-radius:10px;padding:18px;margin:12px 0}.card h3{font-size:16px;margin:0 0 8px;overflow-wrap:anywhere}.meta{font-size:12px;color:#66766b;line-height:1.8;overflow-wrap:anywhere}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions button{font-size:12px;padding:9px 12px}.badge{display:inline-block;background:#edf3e9;padding:4px 9px;border-radius:8px;margin-top:8px;font-size:12px}pre{font:inherit;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8}#message{padding:0 8px;white-space:pre-wrap}#message.error{color:#a5322b}#history{margin-top:28px;border-top:2px solid #e6ecdf;padding-top:20px}footer{font-size:12px;margin:26px 0}a{color:#176653}[hidden]{display:none!important}:focus-visible{outline:3px solid #d89c40;outline-offset:2px}@media(max-width:600px){main{padding:20px 12px}.panel{padding:18px}.row{display:block}.row button{margin-top:10px}nav{gap:6px}nav button{font-size:12px;padding:10px}}
+
+/* Login presentation only. Preserve original DOM, application and hidden states. */
+body:has(#login-panel:not([hidden])) { background:#f5f8f7; color:#123f3b; min-height:100svh; font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif; }
+body:has(#login-panel:not([hidden])) main { max-width:1200px; padding:36px 48px 64px; }
+body:has(#login-panel:not([hidden])) header { gap:16px; font-size:14px; line-height:1.6; }
+body:has(#login-panel:not([hidden])) #who { font-weight:600; }
+body:has(#login-panel:not([hidden])) #demo-note { color:#fff; background:#b42318; border:1px solid #b42318; border-radius:6px; padding:4px 10px; font-size:12px; font-weight:700; line-height:1.5; letter-spacing:.08em; }
+body:has(#login-panel:not([hidden])) h1 { font-size:clamp(2rem,4.3vw,3.5rem); line-height:1.12; letter-spacing:-.045em; font-weight:750; margin:clamp(64px,11vh,120px) 0 20px; text-wrap:balance; }
+body:has(#login-panel:not([hidden])) #auto-status { color:#56716b; font-size:14px; font-variant-numeric:tabular-nums; margin:0 0 44px; }
+body:has(#login-panel:not([hidden])) #message { max-width:400px; margin:0 auto 20px; font-size:14px; overflow-wrap:anywhere; }
+body:has(#login-panel:not([hidden])) #message:empty { display:none; }
+#login-panel { width:100%; max-width:400px; margin:0 auto; }
+#login { text-align:left; }
+#login label { margin:0 0 24px; font-size:14px; font-weight:600; line-height:1.6; }
+#login input { width:100%; min-width:0; min-height:56px; padding:14px 16px; margin:9px 0 0; border:1px solid #cbd9d5; border-radius:12px; color:#123f3b; background:#fff; font-family:inherit; font-size:16px; font-weight:400; box-shadow:0 2px 3px #143f3703; transition:border-color .15s,box-shadow .15s; }
+#login input:hover { border-color:#8fa9a2; }
+#login input:focus-visible { outline:3px solid #9dd4c7; outline-offset:3px; border-color:#236b5c; }
+#login-button { display:block; width:100%; min-height:56px; padding:14px 20px; margin-top:32px; border-radius:12px; background:#123f37; font-family:inherit; font-size:16px; font-weight:600; box-shadow:0 6px 14px #123f3712; transition:background .15s,box-shadow .15s; }
+#login-button:hover:not(:disabled) { background:#1c594d; box-shadow:0 8px 18px #123f3720; }
+#login-button:active:not(:disabled) { background:#0b3029; }
+#login-button:focus-visible { outline:3px solid #63a894; outline-offset:4px; }
+@media(max-width:600px) {
+ body:has(#login-panel:not([hidden])) main { padding:24px 24px 48px; }
+ body:has(#login-panel:not([hidden])) header { align-items:flex-start; gap:6px 16px; }
+ body:has(#login-panel:not([hidden])) .header-right { justify-content:flex-start; }
+ body:has(#login-panel:not([hidden])) #demo-note { font-size:12px; }
+ body:has(#login-panel:not([hidden])) h1 { margin:72px auto 18px; max-width:400px; font-size:clamp(2rem,8.8vw,2.75rem); line-height:1.16; letter-spacing:-.04em; }
+ body:has(#login-panel:not([hidden])) #auto-status { margin-bottom:36px; }
+ #login label { margin-bottom:22px; }
+ #login-button { margin-top:28px; }
+}
+@media(max-height:600px) and (min-width:601px) {
+ body:has(#login-panel:not([hidden])) h1 { margin-top:36px; }
+ body:has(#login-panel:not([hidden])) #auto-status { margin-bottom:24px; }
+}
+@media(prefers-reduced-motion:reduce) { #login input, #login-button { transition:none; } }
+
+/* Reference logo composition; crop with layout, keeping the supplied image intact. */
+.header-logo { display:block; position:relative; width:180px; height:104px; overflow:hidden; margin:0 auto 24px; mix-blend-mode:multiply; }
+.header-logo img { position:absolute; width:384px; height:384px; max-width:none; left:-102px; top:-116px; }
+body:has(#login-panel:not([hidden])) h1 { margin-top:52px; }
+@media(max-width:600px) { body:has(#login-panel:not([hidden])) h1 { margin-top:42px; } .header-logo { margin-bottom:20px; } }
+
+#who:empty { display:none; }
+body:has(#login-panel:not([hidden])) header { justify-content:flex-end; }
+
+/* Reader workspace presentation only (nav[hidden] only occurs for the reader role, once logged in). Preserve original DOM, application and hidden states. */
+body:has(#workspace:not([hidden])):has(nav[hidden]) { background:#f5f8f7; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) main { max-width:900px; padding:32px 24px 56px; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) header { gap:16px; font-size:14px; line-height:1.6; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) #who { font-weight:600; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) h1 { color:#292832; font-weight:500; letter-spacing:.12em; font-size:clamp(1.8rem,4.1vw,3.25rem); line-height:1.12; margin:52px 0 20px; text-wrap:balance; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) #auto-status { color:#56716b; font-size:14px; font-variant-numeric:tabular-nums; margin:0 0 44px; text-align:center; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) #message { max-width:480px; margin:0 auto 16px; font-size:14px; overflow-wrap:anywhere; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) #message:empty { display:none; }
+/* DEMO badge: same look as the login screen, moved to sit right of the logout button (order only — DOM/JS untouched) */
+body:has(#workspace:not([hidden])):has(nav[hidden]) #demo-note { display:inline-block !important; order:5; color:#fff; background:#b42318; border:1px solid #b42318; border-radius:6px; padding:4px 10px; font-size:12px; font-weight:700; line-height:1.5; letter-spacing:.08em; margin:0; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) #logout { padding:4px 10px !important; font-size:12px !important; font-weight:700 !important; line-height:1.5 !important; border-radius:6px !important; border:1px solid transparent !important; margin:0 !important; }
+body:has(#workspace:not([hidden])):has(nav[hidden]) #logout { order:1; }
+#files.bare #search { gap:12px; max-width:560px; margin:0 auto 22px; }
+#files.bare #search input,
+#files.bare #search select,
+#files.bare #search button {
+ width:100%; min-height:52px; padding:13px 16px; border-radius:12px; border:1px solid #cbd9d5; background:#fff; color:#123f3b; font-family:inherit; font-size:15px; font-weight:400; box-shadow:0 2px 3px #143f3703; transition:border-color .15s,box-shadow .15s;
+}
+#files.bare #search input:hover,
+#files.bare #search select:hover { border-color:#8fa9a2; }
+#files.bare #search input:focus-visible,
+#files.bare #search select:focus-visible { outline:3px solid #9dd4c7; outline-offset:3px; border-color:#236b5c; }
+#files.bare #search button { background:#123f37; color:#fff; font-weight:600; box-shadow:0 6px 14px #123f3712; transition:background .15s,box-shadow .15s; cursor:pointer; }
+#files.bare #search button:hover { background:#1c594d; box-shadow:0 8px 18px #123f3720; }
+#files.bare #search button:active { background:#0b3029; }
+#files.bare #search button:focus-visible { outline:3px solid #63a894; outline-offset:4px; }
+#files.bare #count { text-align:center; font-size:13px; color:#56716b; margin:4px 0 20px; }
+#files.bare .card { position:relative; border:1px solid #dce5d8; border-radius:12px; padding:14px 128px 14px 18px; box-shadow:0 2px 8px #143f3708; transition:box-shadow .15s,border-color .15s; }
+#files.bare .card:hover { box-shadow:0 4px 14px #143f3714; border-color:#c3d4cd; }
+#files.bare .card h3 { margin:0; font-size:15px; line-height:1.4; overflow-wrap:anywhere; }
+#files.bare .card .meta { margin:4px 0 0; }
+#files.bare .card .actions { position:absolute; top:14px; right:14px; margin:0; }
+#files.bare .card .actions button { font-size:12px; padding:8px 14px; }
+@media(max-width:600px) {
+ #files.bare .card { padding:14px 100px 14px 16px; }
+ #files.bare .card .actions { top:12px; right:12px; }
+}
+#files.bare #more { display:block; margin:22px auto 0; min-height:48px; padding:13px 22px; border-radius:12px; transition:background .15s; }
+@media(max-width:600px) {
+ body:has(#workspace:not([hidden])):has(nav[hidden]) main { padding:24px 18px 40px; }
+ body:has(#workspace:not([hidden])):has(nav[hidden]) header { align-items:flex-start; gap:6px 16px; }
+ body:has(#workspace:not([hidden])):has(nav[hidden]) .header-right { justify-content:flex-start; }
+ body:has(#workspace:not([hidden])):has(nav[hidden]) h1 { margin:42px auto 18px; max-width:400px; font-size:clamp(1.55rem,6.5vw,2.25rem); line-height:1.16; letter-spacing:.1em; }
+ body:has(#workspace:not([hidden])):has(nav[hidden]) #auto-status { margin-bottom:36px; }
+ body:has(#workspace:not([hidden])):has(nav[hidden]) #demo-note { font-size:12px; }
+ #files.bare #search { max-width:100%; }
+}
+@media(prefers-reduced-motion:reduce) { #files.bare #search input, #files.bare #search select, #files.bare #search button, #files.bare .card, #files.bare #more { transition:none; } }
